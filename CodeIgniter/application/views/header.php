@@ -15,7 +15,7 @@
 </head>
 <style>
 	.article-md {
-		width: 50%;
+		width: 30%;
 		margin: 0 auto;
 	}
 
@@ -36,6 +36,13 @@
 		-webkit-transition-duration: 0.5s;
 		-moz-transition-duration: 0.5s;
 		-o-transition-duration: 0.5s;
+	}
+
+	#img-logo {
+		margin: 0 auto;
+		text-align: center;
+		width: 200px;
+		height: 200px;
 	}
 
 /*
