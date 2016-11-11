@@ -8,6 +8,7 @@ class Login extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
+		$this->load->model('user_model');
 	}
 
 	/**
@@ -34,7 +35,7 @@ class Login extends CI_Controller {
 
 	public function login_user() 
 	{
-		$this->load->model('user_model');
+		
 
 		$this->form_validation->set_rules("email", '', "trim|required|valid_email");
 		$this->form_validation->set_rules("password", '', "trim|required");
@@ -60,6 +61,15 @@ class Login extends CI_Controller {
 			$this->session->set_flashdata('error_msg', '<div class="alert alert-danger text-center">User or password invalids.</div>');
 			redirect('/login');
 		}
+
+	}
+	public function home()
+	{
+		$users = $this->user_model->get_all();
+		$array = array('users' => $users);
+		$this->load->view('header');
+		$this->load->view('home', $array);
+		$this->load->view('footer');
 
 	}
 }
